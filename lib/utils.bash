@@ -18,14 +18,10 @@ platform() {
   ARCH=$(uname -m)
   PLATFORM=$(uname)
 
-  if [[ $ARCH = "arm64" ]]; then
-    NAME=chromedriver_mac64_m1
-  elif [[ $ARCH = "x86_64" ]]; then
-    if [[ $PLATFORM = "Darwin" ]]; then
-      NAME=chromedriver_mac64
-    else
-      NAME=chromedriver_linux64
-    fi
+  if [[ $PLATFORM = "Darwin" ]]; then
+    NAME=chromedriver_mac64
+  else
+    NAME=chromedriver_linux64
   fi
   echo "$NAME"
 }
